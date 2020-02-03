@@ -9,21 +9,32 @@ import re
 scannerConstantEOF = "$"
 
 
-# TODO: Description of scan(input)
-def scan(input):
+# Scans the inputStr and produces an dictionary with two fields:
+#
+#       "tokens":     A list of tokens in the input, in order
+#       "variables":  A list of the variables sorted by alphabetical order,
+#                     keyed by their index.
+#
+def scan(inputStr):
     # Check that the input does not contain any invalid characters.
     # TODO: checkIntegerity(input)
 
     # Get a preliminary scan in which variables are named rather than numbered
-    preliminary = preliminaryScan(input)
+    preliminary = preliminaryScan(inputStr)
 
     # Convert the preliminary scan into the result by sorting variables by name
     # and renumbering them
-    # TODO: implement numberVariables
     return numberVariables(preliminary)
 #    return preliminary
 
-# TODO: Description of preliminaryScan(input)
+
+# Does a preliminary scan of the input. The preliminary scan is identical to
+# the final scan, except that the variables are named rather than numbered.
+# The returned dictionary will have two fields:
+#
+#      "tokens":      The tokens in the input.
+#      "variableSet": A dictionary of all the tokens named in the input.
+#
 def preliminaryScan(inputStr: str):
     # Append the $ marker to the end of input, this means a EOF marker.
     inputStr += scannerConstantEOF
