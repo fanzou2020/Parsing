@@ -1,0 +1,9 @@
+/.idea/
+/venv/
+/Client.py
+/GenerateTruthTable.py
+/input.txt
+/input_a.txt
+/Parsing.py
+/variables.json
+/__pycache__
