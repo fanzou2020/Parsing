@@ -1,37 +1,25 @@
-from Parsing1 import Parsing as ps
+# **********************************************************************
+# Generate truth table, go through
 
 
-# create a new array of truth values of each possibility for n variables.
-# initialize the array with all false values.
-def generate_truth_table(sentence_list: list, num_of_var: int):
-
+def generateTruthTable(parseResult):
+    numOfVarialbes = len(parseResult["variables"])
     assignment = []
-    for i in range(num_of_var):
+    for i in range(numOfVarialbes):
         assignment.append(False)
 
     while True:
-        dictionary = generate_dict(num_of_var, assignment)
         print(assignment, end='')
         print("  =  ", end='')
-        print(ps.parsing(sentence_list, dictionary))
+        print(parseResult["ast"].evaluate(assignment))
 
-        if not next_assignment(assignment):
+        if not nextAssignment(assignment):
             break
-
-
-# generate dictionary like {"P1": True, "P2": False, ..., "Pn": True}
-# using the values of assignment list [True, False, ..., True]
-def generate_dict(num_of_var, assignment):
-    dictionary = {}
-    for i in range(num_of_var):
-        dictionary["P" + str(i + 1)] = assignment[i]
-
-    return dictionary
 
 
 # return true if we have not go through all possibilities.
 # and change to assignment list to the next possibility.
-def next_assignment(assignment):
+def nextAssignment(assignment):
     # Walking from the right to left, search for a false to make it true.
     flip_index = len(assignment) - 1
     while flip_index >= 0 and assignment[flip_index]:
@@ -47,4 +35,3 @@ def next_assignment(assignment):
         assignment[i] = False
 
     return True
-

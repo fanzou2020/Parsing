@@ -1,5 +1,5 @@
-from Parsing2 import parser
-from Parsing2 import truth_table
+import parser
+import truth_table
 
 inputStr = "~(a and b) -> c"
 assignment = [True, False, True, False]

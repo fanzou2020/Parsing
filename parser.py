@@ -1,7 +1,7 @@
 # *****************************************************************
 # A parser that produces an AST from a sequence of tokens
-from Parsing2 import scanner
-from Parsing2 import ast
+import scanner
+import ast
 
 
 # Given input, parse it to generate AST and variable map.

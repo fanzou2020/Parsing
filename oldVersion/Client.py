@@ -1,4 +1,4 @@
-from Parsing1 import GenerateTruthTable as gtb, Parsing as ps
+from oldVersion import GenerateTruthTable as gtb, Parsing as ps
 
 # Question 1
 sentence_list = ps.open_txt("input.txt")
