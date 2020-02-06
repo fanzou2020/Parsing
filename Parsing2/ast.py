@@ -1,5 +1,4 @@
 # ******************************************************************************
-# Author: Fan Zou
 # All ast nodes must have functions of the form
 #   evaluate(assignment), returns the value of the expression given the
 #                         variable assignment as an array of trues and falses.

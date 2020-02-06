@@ -1,5 +1,4 @@
 # *****************************************************************************
-# Author: Fan Zou
 # A scanner to convert expression from text to logic token.
 # The token can be any of these operators:
 # /\   \/   ->   <->   ~
@@ -239,12 +238,12 @@ def numberVariables(preliminary):
 
 
 
-inputStr = "P1 and ((P2 or P3) \/ !P45)"
-scannerResult = scan(inputStr)
-tokens = scannerResult["tokens"]
-variables = scannerResult["variables"]
-for x in tokens:
-    print(x)
-for y in variables:
-    print(y)
+# inputStr = "P1 and ((P2 or P3) \/ !P45) and T or F"
+# scannerResult = scan(inputStr)
+# tokens = scannerResult["tokens"]
+# variables = scannerResult["variables"]
+# for x in tokens:
+#     print(x)
+# for y in variables:
+#     print(y)
 
