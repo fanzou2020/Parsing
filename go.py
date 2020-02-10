@@ -1,7 +1,7 @@
 import parser
 import truth_table
 
-inputStr = "~(a and b) -> c"
+inputStr = input('Please enter the proposition:\n')
 assignment = [True, False, True, False]
 result = parser.parse(inputStr)
 ast = result["ast"].evaluate(assignment)
