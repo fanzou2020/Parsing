@@ -1,5 +1,5 @@
 # ******************************************************************************
-# All ast nodes must have functions of the form
+# All ast (abstract syntax tree) nodes must have functions of the form
 #   evaluate(assignment), returns the value of the expression given the
 #                         variable assignment as an array of trues and falses.
 #   toString(variables), which produces a human-readable representation of the
@@ -18,7 +18,7 @@ class TrueNode:
 # *** Node type for F ***
 class FalseNode:
     def evaluate(self, assignment):
-        return FalseNode
+        return False
 
     def toString(self, variables):
         return "falseNode"
