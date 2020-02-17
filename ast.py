@@ -2,8 +2,7 @@
 # All ast (abstract syntax tree) nodes must have functions of the form
 #   evaluate(assignment), returns the value of the expression given the
 #                         variable assignment as an array of trues and falses.
-#   toString(variables), which produces a human-readable representation of the
-#                        AST rooted at the node given the variables information.
+#
 
 
 # *** Node type for T ***
@@ -11,17 +10,11 @@ class TrueNode:
     def evaluate(self, assignment):
         return True
 
-    def toString(self, variables):
-        return "trueNode"
-
 
 # *** Node type for F ***
 class FalseNode:
     def evaluate(self, assignment):
         return False
-
-    def toString(self, variables):
-        return "falseNode"
 
 
 # *** Node type for ~ ***
@@ -31,9 +24,6 @@ class NegateNode:
 
     def evaluate(self, assignment):
         return not self.underlying.evaluate(assignment)
-
-    def toString(self, variables):
-        return "not" + self.underlying.toString(variables)
 
 
 # *** Node type for and /\ ***
@@ -45,9 +35,6 @@ class AndNote:
     def evaluate(self, assignment):
         return self.lhs.evaluate(assignment) and self.rhs.evaluate(assignment)
 
-    def toString(self, variables):
-        return "(" + self.lhs.toString(variables) + "and" + self.rhs.toString(variables) + ")"
-
 
 # *** Node type for or \/ ***
 class OrNode:
@@ -57,9 +44,6 @@ class OrNode:
 
     def evaluate(self, assignment):
         return self.lhs.evaluate(assignment) or self.rhs.evaluate(assignment)
-
-    def toString(self, variables):
-        return "(" + self.lhs.toString(variables) + "or" + self.rhs.toString(variables) + ")"
 
 
 # *** Node type for -> ***
@@ -71,9 +55,6 @@ class ImpliesNode:
     def evaluate(self, assignment):
         return (not self.lhs.evaluate(assignment)) or self.rhs.evaluate(assignment)
 
-    def toString(self, variables):
-        return "(" + self.lhs.toString(variables) + "->" + self.rhs.toString(variables) + ")"
-
 
 # *** Node type for <-> ***
 class IffNode:
@@ -84,9 +65,6 @@ class IffNode:
     def evaluate(self, assignment):
         return self.lhs.evaluate(assignment) == self.rhs.evaluate(assignment)
 
-    def toString(self, variables):
-        return "(" + self.lhs.toString(variables) + "<->" + self.rhs.toString(variables) + ")"
-
 
 # *** Node type for variables ***
 class VariableNode:
@@ -95,9 +73,6 @@ class VariableNode:
 
     def evaluate(self, assignment):
         return assignment[self.index]
-
-    def toString(self, variables):
-        return variables[self.index]
 
 # assignment = [True, False, True, False]
 # variables = ["P1", "P2", "P3", "P4"]
